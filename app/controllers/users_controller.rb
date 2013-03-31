@@ -10,6 +10,12 @@ class UsersController < ApplicationController
     #@user = User.new
   end
   
+  #GET /users/:name
+  def name
+  	@log_in_name = params[:name]
+  	redirect_to log_in_path
+  end
+  
   def list
   	@users = User.order(:name)
 
@@ -22,12 +28,20 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
+  #	if(!is_number(params[:id]) )
+  #		redirect_to log_in_path, :name => params[:id]
+  #	else
+		  @user = User.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
-    end
+		  respond_to do |format|
+		    format.html # show.html.erb
+		    format.xml  { render :xml => @user }
+		  end
+	#	end
+  end
+  
+  def is_number(string)
+  	true if Float(self) rescue false
   end
 
   # GET /users/new

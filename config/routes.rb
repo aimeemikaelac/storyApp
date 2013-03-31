@@ -17,7 +17,9 @@ StoryApp::Application.routes.draw do
 	
 	get "sign_up" => "users#new", :as => "sign_up"
 	
-	get "show/:id" => "user#show", :as => "profile"
+	get "show/:id" => "users#show", :as => "profile"
+	
+	get "log_in/:name" => "sessions#new", :as => "log_in_by_name"
 
   resources :users
   resources :sessions

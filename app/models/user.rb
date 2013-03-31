@@ -1,4 +1,5 @@
 require 'digest/sha2'
+require 'paperclip'
 
 class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
@@ -8,9 +9,19 @@ class User < ActiveRecord::Base
   attr_accessible   :password
   attr_accessor	:password
   attr_reader	:password
-  attr_accessible	:name, :id
+  attr_accessible	:name, :id, :photo
 
   validate  :password_must_be_present
+  
+  has_attached_file :photo, :styles => { :small => "150x150>" },
+                  :url  => "/assets/products/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+
+  
+	validates_attachment_presence :photo
+	validates_attachment_size :photo, :less_than => 5.megabytes
+	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+  
   
   def User.authenticate(name, password)
     if user = find_by_name(name)

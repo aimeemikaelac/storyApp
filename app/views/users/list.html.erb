@@ -23,7 +23,7 @@
   	  <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?',
   	     :method => :delete %></td>
   	<% else %>
-  		<td><%= link_to 'Log in', log_in_path %></td>
+  		<td><%= link_to 'Log in', log_in_by_name_path(user.name) %></td>
   	<% end %>
   </tr>
 <% end %>
