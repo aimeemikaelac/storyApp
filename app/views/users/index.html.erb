@@ -1,10 +1,14 @@
+
 <h1>Listing users</h1>
+<!-- START_HIGHLIGHT -->
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+<!-- END_HIGHLIGHT -->
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Hashed password</th>
-    <th>Salt</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,11 +17,10 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
-    <td><%= user.hashed_password %></td>
-    <td><%= user.salt %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?',
+       :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -25,3 +28,4 @@
 <br />
 
 <%= link_to 'New User', new_user_path %>
+
