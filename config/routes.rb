@@ -1,4 +1,6 @@
 StoryApp::Application.routes.draw do
+  get "user/list"
+
   get "sessions/new"
 
   get "sessions/create"
