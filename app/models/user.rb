@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
  
   validates :password, :confirmation => true
-  attr_accessor :password_confirmation
-  attr_reader   :password
+  attr_accessible :password_confirmation
+  attr_accessible   :password
+  attr_accessible	:name
 
   validate  :password_must_be_present
   
