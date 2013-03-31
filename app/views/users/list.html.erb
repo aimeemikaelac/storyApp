@@ -19,9 +19,8 @@
     <td><%= user.name %></td>
     <td><%= link_to 'Profile', user %></td>
     <% if current_user && user.name == current_user.name %>
- 	    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-  	  <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?',
-  	     :method => :delete %></td>
+ 	    <td><%= edit_path(user) %></td>
+  	  <td><%= delete_path(user) %></td>
   	<% else %>
   		<td><%= link_to 'Log in', log_in_by_name_path(user.name) %></td>
   	<% end %>
