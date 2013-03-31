@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @user = User.new
+  	if current_user
+  		redirect_to :action => "show", :id => session[:user_id]
+  	else
+  		redirect_to sign_up_path
+  	end
+    #@user = User.new
   end
   
   def list
