@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible   :password
   attr_accessor	:password
   attr_reader	:password
-  attr_accessible	:name
+  attr_accessible	:name, :id
 
   validate  :password_must_be_present
   
