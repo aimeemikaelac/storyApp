@@ -30,10 +30,10 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @user }
-    end
+#    respond_to do |format|
+#      format.html # new.html.erb
+#      format.xml  { render :xml => @user }
+#    end
   end
 
   # GET /users/1/edit
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    respond_to do |format|
+#    respond_to do |format|
       if @user.save
       	redirect_to root_url, :notice => "Signed up!"
 #        format.html { redirect_to(users_url,
@@ -54,11 +54,12 @@ class UsersController < ApplicationController
 #        format.xml  { render :xml => @user,
 #          :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors,
-          :status => :unprocessable_entity }
+      	render "new"
+#        format.html { render :action => "new" }
+#        format.xml  { render :xml => @user.errors,
+#          :status => :unprocessable_entity }
       end
-    end
+#    end
   end
 
   # PUT /users/1
@@ -83,6 +84,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
+    if @user.id == session[:user_id]
+    	session[:user_id] = nil
+    end
     @user.destroy
 
     respond_to do |format|
