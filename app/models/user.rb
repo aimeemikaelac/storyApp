@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :password, :confirmation => true
   attr_accessible :password_confirmation
   attr_accessible   :password
+  attr_accessor	:password
+  attr_reader	:password
   attr_accessible	:name
 
   validate  :password_must_be_present
