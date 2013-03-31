@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.order(:name)
+    
+  end
+  
+  def list
+  	@users = User.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb

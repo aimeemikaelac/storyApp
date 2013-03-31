@@ -1,11 +1,15 @@
 StoryApp::Application.routes.draw do
-  get "user/list"
+  get "user/list" 
 
   get "sessions/new"
 
   get "sessions/create"
 
   get "sessions/destroy"
+  
+  get "list" => "users#list", :as => "list"
+
+	root :to => "users#new"
 
   resources :users
 
