@@ -1,4 +1,10 @@
 StoryApp::Application.routes.draw do
+  resources :stories
+
+	get "stories/:id" => "stories#show", :as => "stories"
+	
+	get "stories/:id/edit" => "stories#edit", :as => "edit_story"
+	
   get "user/list" 
   
   get "sessions/new"

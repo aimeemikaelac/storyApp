@@ -3,7 +3,7 @@ require 'paperclip'
 
 class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
- 
+	has_many :stories
   validates :password, :confirmation => true
   attr_accessible :password_confirmation
   attr_accessible   :password
