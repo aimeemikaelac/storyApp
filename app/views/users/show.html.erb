@@ -10,4 +10,7 @@
 <% if @user.id == session[:user_id] %>
 	<%= edit_path(@user) %>
 	<%= delete_path(@user) %> 
+	<% @user.stories.each do |story| %>
+		<%= link_to 'Edit', edit_story_path(story) %> <br />
+	<% end %>
 <% end %>

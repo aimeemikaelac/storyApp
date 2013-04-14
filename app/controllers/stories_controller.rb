@@ -13,8 +13,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-		if(Story.exists?(params[:id]))
-			@story = Story.find(params[:id])
+		if(Story.exists?(params[:storyId]))
+			@story = Story.find(params[:storyId])
 		else
 			@story=nil
 		end

@@ -3,7 +3,7 @@ StoryApp::Application.routes.draw do
 
 	get "stories/:id" => "stories#show", :as => "stories"
 	
-	get "stories/:id/edit" => "stories#edit", :as => "edit_story"
+	get "stories/:storyId/edit" => "stories#edit", :as => "edit_story"
 	
   get "user/list" 
   
