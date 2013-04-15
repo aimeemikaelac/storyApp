@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415062523) do
+ActiveRecord::Schema.define(:version => 20130415073458) do
 
   create_table "chapters", :force => true do |t|
     t.integer  "story_id"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(:version => 20130415062523) do
   create_table "sections", :force => true do |t|
     t.integer  "chapter_id"
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.text     "section_text"
   end
 
   create_table "shared_stories", :force => true do |t|

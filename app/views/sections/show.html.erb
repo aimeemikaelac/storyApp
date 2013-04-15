@@ -10,6 +10,10 @@
   <%= @section.title %>
 </p>
 
+<p>
+	<b>Content:</b>
+	<%= simple_format(@section.section_text, :line_width => 10) %>
+</p>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', chapter_path(@section.chapter_id) %>
