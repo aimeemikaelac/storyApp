@@ -13,12 +13,12 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-		if(Story.exists?(params[:storyId]))
-			@story = Story.find(params[:storyId])
-		else
-			@story=nil
-		end
-
+		#if(Story.exists?(params[:storyId]))
+		#	@story = Story.find(params[:storyId])
+		#else
+		#	@story=nil
+		#end
+		@story = Story.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @story }

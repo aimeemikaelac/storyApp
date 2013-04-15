@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
-<% if @story.nil? %>
-	<p>No Stories!</p>
-<% else %>
-	<%= link_to 'Edit', edit_story_path(@story) %> |
-<% end %>
+
+<h1><%= @story.title %></h1>
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>

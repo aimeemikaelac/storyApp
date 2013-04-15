@@ -15,6 +15,15 @@ class UsersController < ApplicationController
   	@log_in_name = params[:name]
   	redirect_to log_in_path
   end
+	
+	def list_stories
+		@user = User.find(params[:id])
+		
+		respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @users }
+    end
+	end
   
   def list
   	@users = User.order(:name)

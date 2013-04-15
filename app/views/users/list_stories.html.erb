@@ -1,0 +1,5 @@
+<h1>Listing stories</h1>
+
+<% @user.stories.each do |story| %>
+	<%= link_to "#{story.title}", stories_path(story) %><br />
+<% end %>

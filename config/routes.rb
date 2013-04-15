@@ -7,7 +7,7 @@ StoryApp::Application.routes.draw do
 	
 	match "stories/show" => "stories#show"
 	
-	get "stories/:id" => "users#list_stories", :as => "listr_stories"
+	get "user/stories/:id" => "users#list_stories", :as => "list_stories"
 	
 	get "stories/show" => "stories#show"
 
