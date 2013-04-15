@@ -1,18 +1,32 @@
-<p id="notice"><%= notice %></p>
+
+	<p id="notice"><%= flash[:notice] %></p>
+
 
 <p>
   <b>Name:</b>
   <%= @user.name %>
 </p>
+Session id: <%= session[:user_id] %><br />
+<%= @user.id %><br />
 
 <%= image_tag @user.photo.url(:small) %> <br />
 
 <% if @user.id == session[:user_id] %>
 	<%= edit_path(@user) %>
 	<%= delete_path(@user) %> 
-	<% @user.stories.each do |story| %>
-		<%= link_to 'Edit', edit_story_path(story) %> <br />
+	<h3>Stories</h3>
+	<% if(@user.stories.size > 0) %>
+		<% @user.stories.each do |story| %>
+			<p><%= story.title %></p>
+			<p><%= story.id %></p>
+			user id: <%= story.user_id %><br />
+			<%= link_to 'Edit', edit_story_path(story) %> 
+			<%= link_to 'Delete', delete_story_path(story) %> <br />
+		<% end %>
+	<% else %>
+		<p>No Stories</p>
 	<% end %>
+	
+	<%= link_to 'Create Story', new_story_path %>
 <% end %>
 
-<%= link_to 'Create Story', new_story_path %>

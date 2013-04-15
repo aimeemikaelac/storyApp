@@ -38,6 +38,8 @@ StoryApp::Application.routes.draw do
 	get "show/:id" => "users#show", :as => "profile"
 	
 	get "log_in/:name" => "sessions#new", :as => "log_in_by_name"
+	
+	get "stories/:id/delete" => "stories#destroy", :as => "delete_story"
 
   resources :users
   resources :sessions

@@ -80,11 +80,17 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.json
   def destroy
     @story = Story.find(params[:id])
-    @story.destroy
-
-    respond_to do |format|
-      format.html { redirect_to stories_url }
-      format.json { head :no_content }
-    end
+		#if(@story.user_id == session[:user_id])
+			@story.destroy
+		#else
+		#	flash[:notice] = "story not deleted"
+		#	redirect_to root_path, :flash => { :alert => "Story not deleted" }
+		#end
+		
+		
+    #respond_to do |format|
+    #  format.html { redirect_to stories_url }
+    #  format.json { head :no_content }
+    #end
   end
 end

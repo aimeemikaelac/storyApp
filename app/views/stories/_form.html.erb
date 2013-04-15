@@ -1,4 +1,4 @@
-<%= form_for(@story) do |f| %>
+<%= form_for(@story, :url => create_story_path(session[:user_id])) do |f| %>
 	<% if @story.errors.any? %>
 		<div id="error_explanation" >
 			<h2><%= pluralize(@story.errors.count, "error") %>
@@ -16,7 +16,7 @@
 		<%= f.text_field :title %>
 	</div>
 	
-	<%= f.hidden_field :user_id %>
+	<%= f.hidden_field :user_id, :value => session[:user_id]%>
 	
 	<div class = "actions">
 		<%= f.submit %>
