@@ -1,0 +1,25 @@
+<h1>Listing shared_stories</h1>
+
+<table>
+  <tr>
+    <th>Story</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @shared_stories.each do |shared_story| %>
+  <tr>
+    <td><%= shared_story.story_id %></td>
+    <td><%= shared_story.user_id %></td>
+    <td><%= link_to 'Show', shared_story %></td>
+    <td><%= link_to 'Edit', edit_shared_story_path(shared_story) %></td>
+    <td><%= link_to 'Destroy', shared_story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Shared story', new_shared_story_path %>

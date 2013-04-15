@@ -1,4 +1,7 @@
 StoryApp::Application.routes.draw do
+  resources :shared_stories
+
+
   resources :stories
 	
 	post "stories/:id/create" => "stories#create", :as => "create_story"

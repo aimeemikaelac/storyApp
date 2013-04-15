@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414232852) do
+ActiveRecord::Schema.define(:version => 20130415034629) do
+
+  create_table "shared_stories", :force => true do |t|
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "stories", :force => true do |t|
     t.datetime "created_at", :null => false
