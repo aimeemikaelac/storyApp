@@ -24,7 +24,7 @@
   	<% else %>
   		<td><%= link_to 'Log in', log_in_by_name_path(user.name) %></td>
   	<% end %>
-	<td><%= link_to 'Stories', stories_path(user) %></td>
+	<td><%= link_to 'Stories', list_stories_path(user) %></td>
   </tr>
 <% end %>
 </table>

@@ -1,6 +1,18 @@
 StoryApp::Application.routes.draw do
   resources :stories
+	
+	post "stories/:id/create" => "stories#create", :as => "create_story"
+	
+	post "stories/:userId" => "stories#create"
+	
+	match "stories/show" => "stories#show"
+	
+	get "stories/:id" => "users#list_stories", :as => "listr_stories"
+	
+	get "stories/show" => "stories#show"
 
+	get "stories/new/:id" => "stories#new", :as => "new_story"
+	
 	get "stories/:id" => "stories#show", :as => "stories"
 	
 	get "stories/:storyId/edit" => "stories#edit", :as => "edit_story"
