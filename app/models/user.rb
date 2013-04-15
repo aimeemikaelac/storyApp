@@ -4,13 +4,13 @@ require 'paperclip'
 class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
 	has_many :stories
+	has_many :shared_stories
   validates :password, :confirmation => true
   attr_accessible :password_confirmation
   attr_accessible   :password
   attr_accessor	:password
   attr_reader	:password
   attr_accessible	:name, :id, :photo
-
   validate  :password_must_be_present
   
   has_attached_file :photo, :styles => { :small => "150x150>" },

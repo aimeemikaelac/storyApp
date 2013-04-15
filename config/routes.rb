@@ -1,8 +1,16 @@
 StoryApp::Application.routes.draw do
+  resources :sections
+
+
+  resources :chapters
+
+
   resources :shared_stories
 
 
   resources :stories
+	
+	get "stories/:id/chapter/new" => "chapters#new", :as => "new_chapter"
 	
 	post "stories/:id/create" => "stories#create", :as => "create_story"
 	
@@ -43,6 +51,10 @@ StoryApp::Application.routes.draw do
 	get "log_in/:name" => "sessions#new", :as => "log_in_by_name"
 	
 	get "stories/:id/delete" => "stories#destroy", :as => "delete_story"
+	
+	get "chapters/:id/delete" => "chapters#destroy", :as => "delete_chapter"
+	
+	get "stories/:id/share" => "shared_stories#new", :as => "share_story"
 
   resources :users
   resources :sessions

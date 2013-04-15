@@ -1,9 +1,17 @@
 class SharedStoriesController < ApplicationController
+	def new
+		@ids = 'hello'
+		@shared_story = Shared_story.new
+		#@ids = User.all(:select => user.id)
+		#@ids = @ids.map{|user| user.id}
+		
+	end
+
   # GET /shared_stories
   # GET /shared_stories.json
   def index
     @shared_stories = SharedStory.all
-
+		
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shared_stories }

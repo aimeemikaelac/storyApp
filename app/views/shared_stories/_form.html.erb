@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
+	<%= f.hidden_field :story_id, :value => params[:id] %>
+
   <div class="field">
-    <%= f.label :story_id %><br />
-    <%= f.number_field :story_id %>
-  </div>
-  <div class="field">
+	<% @ids = User.pluck(:id) %>
+	<% @ids.delete(session[:user_id]) %>
     <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.collection_select :user_id, @ids, :to_s, :to_s %>
   </div>
   <div class="actions">
     <%= f.submit %>

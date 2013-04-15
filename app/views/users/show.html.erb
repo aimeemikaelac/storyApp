@@ -17,16 +17,30 @@ Session id: <%= session[:user_id] %><br />
 	<h3>Stories</h3>
 	<% if(@user.stories.size > 0) %>
 		<% @user.stories.each do |story| %>
-			<p><%= story.title %></p>
+			<%= link_to story.title, story_path(story.id) %>
 			<p><%= story.id %></p>
 			user id: <%= story.user_id %><br />
 			<%= link_to 'Edit', edit_story_path(story) %> 
-			<%= link_to 'Delete', delete_story_path(story) %> <br />
+			<%= link_to 'Delete', delete_story_path(story) %>
+			<%= link_to 'Share', share_story_path(story.id) %><br />
 		<% end %>
 	<% else %>
 		<p>No Stories</p>
 	<% end %>
 	
 	<%= link_to 'Create Story', new_story_path %>
+	
+	<h3>Stories Shared With You</h3>
+	<% if(@user.shared_stories.size > 0) %>
+		<% @user.shared_stories.each do |shared| %>
+			<% story = Story.find(shared.story_id) %>
+			<%= link_to story.title, story_path %>
+			<p><%= story.id %></p>
+			user id: <%= story.user_id %><br />
+			<%= link_to 'Edit', edit_story_path(story) %> 
+		<% end %>
+	<% else %>
+		<p>No Shared Stories</p>
+	<% end %>
 <% end %>
 
