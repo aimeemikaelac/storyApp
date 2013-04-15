@@ -11,10 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :chapter_id %><br />
-    <%= f.number_field :chapter_id %>
-  </div>
+<%= f.hidden_field :chapter_id, :value => params[:id] %>
+  
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>

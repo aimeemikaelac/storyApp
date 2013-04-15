@@ -10,6 +10,13 @@
   <%= @chapter.title %>
 </p>
 
+<% @chapter.sections.each do |section| %>
+	<%= link_to section.title, section_path(section.id) %>
+	<%= link_to 'Delete', delete_section_path(section.id) %><br />
+<% end %>
+
+<%= link_to 'Create new section', new_section_path %><br />
+
 
 <%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>
+<%= link_to 'Back', stories_path(@chapter.story_id) %>

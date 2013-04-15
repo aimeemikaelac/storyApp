@@ -10,6 +10,8 @@ StoryApp::Application.routes.draw do
 
   resources :stories
 	
+	get "chapters/:id/section/new" => "sections#new", :as => "new_section"
+	
 	get "stories/:id/chapter/new" => "chapters#new", :as => "new_chapter"
 	
 	post "stories/:id/create" => "stories#create", :as => "create_story"
@@ -53,6 +55,8 @@ StoryApp::Application.routes.draw do
 	get "stories/:id/delete" => "stories#destroy", :as => "delete_story"
 	
 	get "chapters/:id/delete" => "chapters#destroy", :as => "delete_chapter"
+	
+	get "sections/:id/delete" => "sections#destroy", :as => "delete_section"
 	
 	get "stories/:id/share" => "shared_stories#new", :as => "share_story"
 

@@ -44,7 +44,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
+        format.html { redirect_to chapter_path(@section.chapter_id), notice: 'Section was successfully created.' }
         format.json { render json: @section, status: :created, location: @section }
       else
         format.html { render action: "new" }
@@ -73,10 +73,11 @@ class SectionsController < ApplicationController
   # DELETE /sections/1.json
   def destroy
     @section = Section.find(params[:id])
+		@chapter_id = @section.chapter_id
     @section.destroy
 
     respond_to do |format|
-      format.html { redirect_to sections_url }
+      format.html { redirect_to chapter_path(@chapter_id) }
       format.json { head :no_content }
     end
   end

@@ -3,11 +3,11 @@
 <h1><%= @story.title %></h1>
 
 <% @story.chapters.each do |chapter| %>
-	<%= chapter.title %>
+	<%= link_to chapter.title, chapter_path(chapter.id) %>
 	<%= link_to 'Delete', delete_chapter_path(chapter.id) %><br />
 <% end %>
 
 <%= link_to 'Create new chapter', new_chapter_path %>
 
 <%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+<%= link_to 'Back', root_path %>
