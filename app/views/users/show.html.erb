@@ -15,7 +15,7 @@ Session id: <%= session[:user_id] %><br />
 	<%= edit_path(@user) %>
 	<%= delete_path(@user) %> 
 	<h3>Stories</h3>
-	<% if(@user.stories.size > 0) %>
+	<% if(@user.stories.exists? && @user.stories.size > 0) %>
 		<% @user.stories.each do |story| %>
 			<%= link_to story.title, story_path(story.id) %>
 			<p><%= story.id %></p>
