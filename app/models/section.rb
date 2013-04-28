@@ -7,6 +7,6 @@ class Section < ActiveRecord::Base
 	validates :chapter_id, :presence => true
 	validates :title, :presence => true
 	
-	validates_attachment_presence :section_doc`
+	validates_attachment_presence :section_doc
 	validates_attachment_content_type :attachment, :content_type => [ 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ]
 end
