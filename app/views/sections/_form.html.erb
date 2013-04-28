@@ -19,9 +19,15 @@
   </div>
   
   <div class = "field">
-	<%= f.label :section_text %>
-	<%= f.text_area :section_text %>
+		<%= f.label :section_text %>
+		<%= f.text_area :section_text %>
   </div>
+  
+  <div class = "field">
+  	<%= f.label :section_file %>
+  	<%= f.file_field :section_file %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
