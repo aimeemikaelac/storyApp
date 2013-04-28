@@ -1,6 +1,6 @@
 class Section < ActiveRecord::Base
-  attr_accessible :chapter_id, :title, :section_text
-  has_attached_file :section_file,
+  attr_accessible :chapter_id, :title, :section_text, :section_doc
+  has_attached_file :section_doc,
   	:url => "/assets/files/:id/:style/:basename.:extension",
   	:path => "cs446/coughlin/#{Rails.env}:url"
 	belongs_to :chapter
