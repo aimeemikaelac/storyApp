@@ -18,7 +18,7 @@
 <p>
 	<b>Files:</b>
 	<% if @section.section_doc.exists? %>
-		<%= link_to @section.section_doc_file_name @section.section_doc.url(:original, false) %>
+		<%= link_to "Download" @section.section_doc.url(:original, false) %>
 	<% else %>
 		No files!
 	<% end %>
