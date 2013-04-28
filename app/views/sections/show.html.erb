@@ -12,7 +12,16 @@
 
 <p>
 	<b>Content:</b>
-	<%= simple_format(@section.section_text, :line_width => 10) %>
+		<%= simple_format(@section.section_text, :line_width => 10) %>
+</p>
+
+<p>
+	<b>Files:</b>
+	<% if @section.section_file.exists? %>
+		<%= link_to @section.section_file_file_name @section.section_file.url(:original, false) %>
+	<% else %>
+		No files!
+	<% end %>
 </p>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
