@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+  before_filter :create_joke
+  def create_joke
+  	@joke = Joke.get(:random)
+  end
   def index
   	if current_user
   		redirect_to :action => "show", :id => session[:user_id]
@@ -27,7 +31,6 @@ class UsersController < ApplicationController
   
   def list
   	@users = User.order(:name)
-		@joke = Joke.get(:random)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
