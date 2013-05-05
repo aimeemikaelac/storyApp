@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   
   def list
   	@users = User.order(:name)
-
+		@joke = Joke.get(:random)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
